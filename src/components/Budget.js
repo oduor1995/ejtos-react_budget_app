@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-  const { budget, dispatch } = useContext(AppContext);
+  const { budget, currency, dispatch } = useContext(AppContext);
   const [editMode, setEditMode] = useState(false);
   const [newBudget, setNewBudget] = useState(budget);
 
@@ -36,6 +36,21 @@ const Budget = () => {
     setNewBudget(budget);
   };
 
+  const formatCurrency = (value) => {
+    switch (currency) {
+      case '$':
+        return `$${value}`;
+      case '£':
+        return `£${value}`;
+      case '€':
+        return `€${value}`;
+      case '₹':
+        return `₹${value}`;
+      default:
+        return value;
+    }
+  };
+
   return (
     <div className="alert alert-secondary">
       {editMode ? (
@@ -51,7 +66,7 @@ const Budget = () => {
         </>
       ) : (
         <>
-          <span>Budget: £{budget}</span>
+          <span>Budget: {formatCurrency(budget)}</span>
           <button onClick={() => setEditMode(true)}>Edit</button>
           <button onClick={handleIncrease}>Increase</button>
           <button onClick={handleDecrease}>Decrease</button>

@@ -108,15 +108,16 @@ export const AppProvider = (props) => {
 
     return (
         <AppContext.Provider
-            value={{
-                expenses: state.expenses,
-                budget: state.budget,
-                remaining: remaining,
-                dispatch,
-                currency: state.currency
-            }}
-        >
-            {props.children}
+        value={{
+            expenses: state.expenses,
+            budget: state.budget,
+            remaining: remaining,
+            dispatch,
+            currency: state.currency,
+            setCurrency: (currency) => dispatch({ type: 'CHG_CURRENCY', payload: currency })
+        }}
+    >
+        {props.children}
         </AppContext.Provider>
     );
 };
