@@ -69,13 +69,15 @@ const AllocationForm = (props) => {
           </select>
 
           <input
-            required='required'
-            type='number'
-            id='cost'
-            value={cost}
-            style={{ marginLeft: '2rem', size: 10 }}
-            onChange={(event) => setCost(event.target.value)}>
-          </input>
+  required='required'
+  type='number'
+  id='cost'
+  value={cost}
+  style={{ marginLeft: '2rem', size: 10 }}
+  onChange={(event) => setCost(event.target.value)}
+  placeholder='$'>
+</input>
+
 
           <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
             Save

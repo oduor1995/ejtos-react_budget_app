@@ -20,19 +20,25 @@ const CurrencyDropdown = () => {
 
   return (
     <select
-      className='form-select bg-green text-white'
-      value={selectedCurrency}
-      onChange={handleCurrencyChange}
-      style={{
-        backgroundColor: '#44a04a',
-        ':hover': { backgroundColor: '#fff' }
-      }}
-    >
-      <option value='$'>{"$ Dollar"}</option>
-      <option value='£'>{"£ Pound"}</option>
-      <option value='€'>{"€ Euro"}</option>
-      <option value='₹'>{"₹ Rupee"}</option>
-    </select>
+  className='form-select bg-green text-white'
+  value={selectedCurrency}
+  onChange={handleCurrencyChange}
+  style={{
+    backgroundColor: '#44a04a',
+    ':hover': { backgroundColor: '#fff' },
+    color: '#000'
+}}
+
+  
+  
+>
+  <option value='$'>{"$ Dollar"}</option>
+  <option value='£'>{"Currency £ Pound"}</option>
+
+  <option value='€'>{"€ Euro"}</option>
+  <option value='₹'>{"₹ Rupee"}</option>
+</select>
+
   );
 };
   
